@@ -24,8 +24,8 @@ interface HotelProps {
 const RoomDetails = () => {
   const { id } = useParams();
 
-  const [hotel, setHotel] = useState<HotelProps>(null);
-  const [mainImage, setMainImage] = useState<StaticImageData>();
+  const [hotel, setHotel] = useState<HotelProps>();
+  const [mainImage, setMainImage] = useState<StaticImageData | null>(null);
 
   useEffect(() => {
     const fetchHotelDetails = () => {
@@ -62,11 +62,13 @@ const RoomDetails = () => {
       <div className="mt-8 flex flex-col">
         <div className="flex flex-col md:flex-row gap-6">
           <div className="lg:w-1/2 w-full">
-            <Image
-              src={mainImage}
-              alt={hotel.name}
-              className="w-full rounded-xl shadow-lg cover"
-            />
+            {mainImage && (
+              <Image
+                src={mainImage}
+                alt={hotel.name}
+                className="w-full rounded-xl shadow-lg cover"
+              />
+            )}
           </div>
 
           <div className="grid grid-cols-2 gap-4 lg:w-1/2 w-full">
