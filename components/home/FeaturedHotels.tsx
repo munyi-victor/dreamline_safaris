@@ -5,6 +5,22 @@ import FeaturedHotelCard from "../FeaturedHotelCard";
 import Title from "../Title";
 import Link from "next/link";
 
+interface RoomProps {
+  _id: string;
+  hotel: {
+    _id: string;
+    name: string;
+    address: string;
+    contact: string;
+    city: string;
+  };
+  roomType: string;
+  pricePerNight: string;
+  ammenities: string[];
+  images: [];
+  isAvailable: boolean;
+}
+
 const FeaturedHotels = () => {
   return (
     <div className="flex flex-col items-center px-6 md:px-16 bg-slate-50 py-16">

@@ -1,5 +1,5 @@
 import { MapPin, StarIcon } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface RoomProps {
@@ -14,11 +14,15 @@ interface RoomProps {
   roomType: string;
   pricePerNight: string;
   ammenities: string[];
-  images: [];
+  images: StaticImageData[];
   isAvailable: boolean;
 }
 
-const FeaturedHotelCard = ({ room }) => {
+interface FeaturedHotelCardProps {
+  room: RoomProps;
+}
+
+const FeaturedHotelCard = ({ room }: FeaturedHotelCardProps) => {
   return (
     <Link
       href={`/rooms/${room._id}`}
