@@ -27,7 +27,7 @@ const Navbar = () => {
   ];
 
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(null);
+  const [isScrolled, setIsScrolled] = useState<boolean | null>(null);
 
   const pathname = usePathname();
 
