@@ -10,7 +10,7 @@ const Hero = () => {
       <p className="bg-safari-orange text-sm py-1 px-3 rounded-full mt-20">
         The Ultimate Hotel Experience
       </p>
-      <h1 className="text-3xl md:text-5xl md:leading-[56px] font-bold md:font-extrabold max-w-xl mt-4">
+      <h1 className="text-3xl md:text-5xl font-bold md:font-extrabold max-w-xl mt-4">
         Discover Your Perfect Gateway Destination.
       </h1>
       <p className="max-w-130 mt-2 text-sm md:text-base">

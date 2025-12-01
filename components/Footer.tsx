@@ -28,8 +28,8 @@ const Footer = () => {
             Dreamline
           </Link>
           <p className="text-sm">
-            Unparalled luxury and comfort await at Kenya's most exclusive hotels
-            and lodges. Start your journey today.
+            Unparalled luxury and comfort await at Kenya&apos;s most exclusive
+            hotels and lodges. Start your journey today.
           </p>
 
           <div className="flex items-center gap-3 mt-4">
@@ -52,19 +52,13 @@ const Footer = () => {
           <p className="text-lg text-gray-800">COMPANY</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm">
             <li>
-              <Link href="#">About</Link>
+              <Link href="/about">About</Link>
             </li>
+            {/* <li>
+              <Link href="/careers">Careers</Link>
+            </li> */}
             <li>
-              <Link href="#">Careers</Link>
-            </li>
-            <li>
-              <Link href="#">Press</Link>
-            </li>
-            <li>
-              <Link href="#">Blog</Link>
-            </li>
-            <li>
-              <Link href="#">Partners</Link>
+              <Link href="/blog">Blog</Link>
             </li>
           </ul>
         </div>
@@ -73,19 +67,10 @@ const Footer = () => {
           <p className="text-lg text-gray-800">SUPPORT</p>
           <ul className="mt-3 flex flex-col gap-2 text-sm">
             <li>
-              <Link href="#">Help Center</Link>
+              <Link href="/help-center">Help Center</Link>
             </li>
             <li>
-              <Link href="#">Safety Information</Link>
-            </li>
-            <li>
-              <Link href="#">Cancellation Options</Link>
-            </li>
-            <li>
-              <Link href="#">Contact Us</Link>
-            </li>
-            <li>
-              <Link href="#">Accessibility</Link>
+              <Link href="/contact-us">Contact Us</Link>
             </li>
           </ul>
         </div>
@@ -117,10 +102,10 @@ const Footer = () => {
 
         <ul className="flex items-center gap-4">
           <li>
-            <Link href="#">Privacy</Link>
+            <Link href="/privacy-policy">Privacy Policy</Link>
           </li>
           <li>
-            <Link href="#">Terms</Link>
+            <Link href="/terms-and-conditions">T & C</Link>
           </li>
         </ul>
       </div>

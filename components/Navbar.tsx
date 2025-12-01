@@ -23,7 +23,11 @@ const Navbar = () => {
     },
     {
       label: "Contact Us",
-      path: "/contact",
+      path: "/contact-us",
+    },
+    {
+      label: "Blog",
+      path: "/blog",
     },
   ];
 
