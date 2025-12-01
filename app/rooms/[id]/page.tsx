@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { hotels } from "../../../constants";
+import { hotelCommonData, hotels } from "../../../constants";
 import { useParams } from "next/navigation";
 import Title from "../../../components/Title";
 import Image, { StaticImageData } from "next/image";
@@ -9,6 +9,7 @@ import Loader from "../../../components/Loader";
 import { Calendar, MapPin, User } from "lucide-react";
 import StarRating from "../../../components/StarRating";
 import CustomButton from "../../../components/CustomButton";
+import LucideIcon from "../../../components/LucideIcon";
 
 interface HotelProps {
   _id: string;
@@ -95,7 +96,7 @@ const RoomDetails = () => {
             </h1>
 
             <p className="text-2xl md:text-3xl font-medium">
-              Ksh{hotel.pricePerNight} /night
+              ${hotel.pricePerNight} /night
             </p>
           </div>
 
@@ -110,8 +111,8 @@ const RoomDetails = () => {
             ))}
           </div>
 
-          <form className="bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex justify-between max-md:items-start gap-4 max-md:mx-auto shadow-md">
-            <div className="flex flex-row gap-6">
+          <form className="bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row justify-between max-md:items-start gap-4 max-md:mx-auto shadow-md w-fit md:w-full">
+            <div className="flex flex-col items-start justify-center md:flex-row gap-6">
               <div>
                 <div className="flex items-center gap-2">
                   <Calendar size={15} />
@@ -157,8 +158,24 @@ const RoomDetails = () => {
               </div>
             </div>
 
-            <CustomButton title="Check Availability" theme="primary" />
+            <CustomButton
+              title="Check Availability"
+              theme="primary"
+              className="w-full md:w-fit"
+            />
           </form>
+        </div>
+
+        <div className="mt-5">
+          {hotelCommonData.map((data, index) => (
+            <div key={index} className="flex gap-2">
+              <LucideIcon name="Sparkles" size={20} />
+              <div className="flex flex-col gap-2">
+                <h1 className="font-medium">{data.main}</h1>
+                <p className="text-gray-500 text-sm">{data.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

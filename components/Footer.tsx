@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRight,
   FacebookIcon,
@@ -6,8 +8,15 @@ import {
   TwitterIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname();
+
+  const isAdminRoute = pathname.includes("/dashboard");
+
+  if (isAdminRoute) return null;
+
   return (
     <div className="bg-slate-50 text-gray-500/80 pt-8 px-6 md:px-16 lg:px-24">
       <div className="flex flex-wrap justify-between gap-12 md:gap-6">

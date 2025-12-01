@@ -13,6 +13,7 @@ const CustomButton = ({
 }: CustomButtonProps) => {
   return (
     <button
+      onClick={handleClick}
       className={`text-sm md:text-md px-3 py-2 cursor-pointer rounded-lg shadow-sm ${className} ${
         theme === "default"
           ? "bg-black  text-white"

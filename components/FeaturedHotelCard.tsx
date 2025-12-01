@@ -58,7 +58,7 @@ const FeaturedHotelCard = ({ room }: FeaturedHotelCardProps) => {
         <div className="flex items-center justify-between mt-4">
           <p>
             <span className="text-lg md:text-xl text-gray-800">
-              Ksh. {room.pricePerNight}
+              ${room.pricePerNight}
             </span>{" "}
             /night
           </p>

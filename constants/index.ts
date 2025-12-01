@@ -112,7 +112,7 @@ export const roomsData = [
     "_id" : "nsWMLCbDjDpdXjHpw7ySCw",
     "hotel": hotel1Data,
     "roomType": "Double Bed",
-    "pricePerNight": "5000",
+    "pricePerNight": "49",
     "ammenities" : ["Free WiFi", "Hot Shower", "Ample Parking"],
     "images": [hotel11, hotel12, hotel13, hotel14],
     "isAvailable": true,
@@ -121,7 +121,7 @@ export const roomsData = [
     "_id" : "utQIpEqK60LNH4aGZF9cqQ",
     "hotel": hotel3Data,
     "roomType": "Single Bed",
-    "pricePerNight": "5000",
+    "pricePerNight": "49",
     "ammenities" : ["Free WiFi", "Hot Shower", "Ample Parking"],
     "images": [hotel51, hotel62, hotel63, hotel64],
     "isAvailable": true,
@@ -130,7 +130,7 @@ export const roomsData = [
     "_id" : "mu4gOHZhKA6zrellK8J7pg",
     "hotel": hotel2Data,
     "roomType": "Double Bed",
-    "pricePerNight": "10000",
+    "pricePerNight": "99",
     "ammenities" : ["Free WiFi", "Hot Shower", "Ample Parking"],
     "images": [hotel21, hotel22, hotel23, hotel24],
     "isAvailable": true,
@@ -197,5 +197,81 @@ export const testimonials = [
     image: testImg3,
     rating: 5,
     review: "Dreamline Safaris exceeded my expectations! Thier booking process was unmatched. I highly recommend them."
+  },
+]
+
+export const hotelCommonData = [
+  {
+    iconName: "DoorOpen",
+    main:"Easy check-in process throughout all our hotels.",
+    description:"All our clients rate our check-in proces as the best."
+  },
+  {
+    iconName: "Sparkles",
+    main:"Well maintained and clean rooms.",
+    description:"All our rooms are constantly maintained and thoroughly cleaned by professionals."
+  },
+  {
+    iconName: "BedDouble",
+    main:"Full furnished rooms.",
+    description:"All our rooms are full equipped with all apliances and furniture our clients may need."
+  },
+  {
+    iconName: "Headphones",
+    main:"Caring and considerate customer service.",
+    description:"Our clients are satisfied with our caring and professional customer service."
+  },
+]
+
+export const bookings = [
+  {
+    bookingID: "BK-100",
+    guest:"John Mwangi",
+    hotel:"Safari Blue Hotel",
+    roomType:"Deluxe Room",
+    checkIn:"2025-11-30",
+    checkOut:"2025-12-03",
+    amount:"200",
+    status:"Paid",
+  },
+    {
+    bookingID: "BK-101",
+    guest:"Grace Johnson",
+    hotel:"Safari Blue Hotel",
+    roomType:"Executive Suite",
+    checkIn:"2025-11-30",
+    checkOut:"2025-12-03",
+    amount:"300",
+    status:"Paid",
+  },
+  {
+    bookingID: "BK-102",
+    guest:"Sarah Kimani",
+    hotel:"The Palm Resort",
+    roomType:"Standard Room",
+    checkIn:"2025-11-30",
+    checkOut:"2025-12-03",
+    amount:"125",
+    status:"Pending",
+  },
+  {
+    bookingID: "BK-103",
+    guest:"Rooney Otieno",
+    hotel:"Royal Hills Lodge",
+    roomType:"Executive Suite",
+    checkIn:"2025-11-30",
+    checkOut:"2025-12-03",
+    amount:"300",
+    status:"Paid",
+  },
+  {
+    bookingID: "BK-104",
+    guest:"Peter Morris",
+    hotel:"Ocean Breeze Resort",
+    roomType:"Executive Suite",
+    checkIn:"2025-11-30",
+    checkOut:"2025-12-03",
+    amount:"250",
+    status:"Cancelled",
   },
 ]

@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import CustomButton from "./CustomButton";
 import { usePathname } from "next/navigation";
+import { useClerk, useUser, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const navLinks = [
@@ -31,10 +32,20 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
+  const { openSignIn } = useClerk();
+  const { isSignedIn, user } = useUser();
+
+  const role = user?.publicMetadata?.role;
+
   const isHome = pathname === "/";
+  const isAdminRoute = pathname.includes("/dashboard");
 
   const toggleOpenMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleSignIn = () => {
+    openSignIn();
   };
 
   useEffect(() => {
@@ -46,13 +57,15 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  if (isAdminRoute) return null;
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full flex flex-row justify-between items-center h-16 px-6 md:px-16 lg:px-24 text-gray-700 ${
         isHome ? "" : "shadow-sm"
       } ${
         isScrolled &&
-        "bg-white/80 shadow-md text-gray-700 backdrop-blur-lg z-10"
+        "bg-white/80 shadow-md text-black/50 backdrop-blur-lg z-10"
       }`}
     >
       <Link
@@ -62,38 +75,56 @@ const Navbar = () => {
         Dreamline
       </Link>
 
-      <div className="hidden md:flex md:flex-row gap-3">
+      <div className="hidden md:flex md:flex-row gap-3 items-center">
         {navLinks.map((link, index) => (
           <div key={index}>
             <Link
               href={link.path}
-              className={`text-md py-1 px-2 rounded hover:bg-gray-100 ${
-                pathname === link.path && "bg-gray-200"
+              className={`text-md p-1 rounded-xl hover:bg-gray-100 ${
+                pathname === link.path && "border border-black/50"
               }`}
             >
               {link.label}
             </Link>
           </div>
         ))}
+
+        {role === "admin" && (
+          <Link
+            href="/dashboard"
+            className="text-black/50 p-1 border border-black/50 rounded-xl"
+          >
+            Dashboard
+          </Link>
+        )}
       </div>
 
       <div className="hidden md:flex flex-row items-center gap-3">
-        <SearchIcon />
+        <CustomButton title="Book now" theme="primary" />
 
-        <CustomButton title="Login" />
+        {isSignedIn ? (
+          <UserButton afterSignOutUrl="/" />
+        ) : (
+          <CustomButton title="Login" handleClick={handleSignIn} />
+        )}
       </div>
 
       {/* mobile screen nav */}
       <div className="md:hidden">
         <div className="flex flex-row gap-3 items-center">
-          <SearchIcon className="cursor-pointer" />
+          {isSignedIn ? (
+            <UserButton afterSignOutUrl="/" />
+          ) : (
+            <SearchIcon className="cursor-pointer" />
+          )}
+
           <button onClick={toggleOpenMenu} className="cursor-pointer">
             {menuOpen ? <XIcon /> : <MenuIcon />}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="bg-white/95 shadow-md text-gray-700 backdrop-blur z-10 flex flex-col gap-3 absolute right-0 top-16 w-52 items-center py-2">
+          <div className="bg-white/95 shadow-md text-gray-700 backdrop-blur z-10 flex flex-col gap-3 absolute right-0 top-16 w-52 items-center py-2 pb-4">
             {navLinks.map((link, index) => (
               <div key={index}>
                 <Link
@@ -106,7 +137,20 @@ const Navbar = () => {
               </div>
             ))}
 
-            <CustomButton title="Login" />
+            {role === "admin" && (
+              <Link
+                href="/dashboard"
+                className="text-black/50 p-1 border border-black/50 rounded-xl"
+              >
+                Dashboard
+              </Link>
+            )}
+
+            {isSignedIn ? (
+              ""
+            ) : (
+              <CustomButton title="Login" handleClick={handleSignIn} />
+            )}
           </div>
         )}
       </div>
