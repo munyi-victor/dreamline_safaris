@@ -2,13 +2,13 @@ import Title from "../../../components/Title";
 
 const ContactUs = () => {
   return (
-    <div className="flex flex-col items-center px-6 md:px-16 bg-slate-50 py-16">
+    <div className="flex flex-col items-center px-6 md:px-16 py-24">
       <Title
         title="Contact Us"
         subTitle="Have questions, feedback, or need support? Get in touch with our team—we’re here to help you anytime."
       />
 
-      <div className="max-w-3xl mt-10 text-gray-700 leading-relaxed space-y-4 w-full">
+      <div className="mt-10 text-gray-700 leading-relaxed space-y-4 w-full">
         <p>
           Have questions or need support? Our team is ready to assist you with
           bookings, recommendations, and general inquiries.

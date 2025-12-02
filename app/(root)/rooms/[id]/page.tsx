@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { hotelCommonData, hotels } from "../../../constants";
 import { useParams } from "next/navigation";
-import Title from "../../../components/Title";
 import Image, { StaticImageData } from "next/image";
-import Loader from "../../../components/Loader";
 import { Calendar, MapPin, User } from "lucide-react";
-import StarRating from "../../../components/StarRating";
-import CustomButton from "../../../components/CustomButton";
-import LucideIcon from "../../../components/LucideIcon";
+import Loader from "../../../../components/Loader";
+import Title from "../../../../components/Title";
+import StarRating from "../../../../components/StarRating";
+import CustomButton from "../../../../components/CustomButton";
+import { hotelCommonData, hotels } from "../../../../constants";
+import LucideIcon from "../../../../components/LucideIcon";
 
 interface HotelProps {
   _id: string;

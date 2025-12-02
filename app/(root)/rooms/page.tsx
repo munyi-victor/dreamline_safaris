@@ -1,11 +1,11 @@
 "use client";
 
-import Title from "../../components/Title";
 import Image from "next/image";
-import { hotels } from "../../constants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import StarRating from "../../components/StarRating";
+import Title from "../../../components/Title";
+import { hotels } from "../../../constants";
+import StarRating from "../../../components/StarRating";
 
 const Rooms = () => {
   const router = useRouter();

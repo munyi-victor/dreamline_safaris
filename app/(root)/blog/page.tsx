@@ -2,13 +2,13 @@ import Title from "../../../components/Title";
 
 const Blog = () => {
   return (
-    <div className="flex flex-col items-center px-6 md:px-16 bg-slate-50 py-16">
+    <div className="flex flex-col items-center px-6 md:px-16 py-24">
       <Title
         title="Blog"
         subTitle="Explore travel guides, hotel reviews, destination tips, and expert insights to help you plan smarter and travel better."
       />
 
-      <div className="max-w-3xl mt-10 text-gray-700 leading-relaxed space-y-4">
+      <div className="mt-10 text-gray-700 leading-relaxed space-y-4">
         <p>
           Discover curated travel stories, destination highlights, and practical
           tips designed to help you explore Kenya with confidence and

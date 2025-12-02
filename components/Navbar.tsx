@@ -54,7 +54,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 8);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -65,12 +65,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full flex flex-row justify-between items-center h-16 px-6 md:px-16 lg:px-24 text-gray-700 ${
+      className={`fixed top-0 left-0 w-full flex justify-between items-center h-16 px-6 md:px-16 lg:px-24 ${
         isHome ? "" : "shadow-sm"
-      } ${
-        isScrolled &&
-        "bg-white/80 shadow-md text-black/50 backdrop-blur-lg z-10"
-      }`}
+      } ${isScrolled && "bg-white/80 shadow-md backdrop-blur-lg z-10"}`}
     >
       <Link
         href="/"
@@ -84,20 +81,18 @@ const Navbar = () => {
           <div key={index}>
             <Link
               href={link.path}
-              className={`text-md p-1 rounded-xl hover:bg-gray-100 ${
-                pathname === link.path && "border border-black/50"
-              }`}
+              className={`group gap-1 items-center text-xl p-1 rounded-xl hover:text-gray-600`}
             >
               {link.label}
+              {/* {pathname === link.path && (
+                <div className="h-0.5 w-full bg-gray-700" />
+              )} */}
             </Link>
           </div>
         ))}
 
         {role === "admin" && (
-          <Link
-            href="/dashboard"
-            className="text-black/50 p-1 border border-black/50 rounded-xl"
-          >
+          <Link href="/dashboard" className="p-1 border rounded-xl">
             Dashboard
           </Link>
         )}
@@ -142,10 +137,7 @@ const Navbar = () => {
             ))}
 
             {role === "admin" && (
-              <Link
-                href="/dashboard"
-                className="text-black/50 p-1 border border-black/50 rounded-xl"
-              >
+              <Link href="/dashboard" className="p-1 border rounded-xl">
                 Dashboard
               </Link>
             )}

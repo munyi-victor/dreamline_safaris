@@ -1,9 +1,22 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 const AddHotel = () => {
+  const router = useRouter();
+
   return (
     <div className="h-full p-2 md:p-4">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex gap-2 items-center mb-4">
+        <button
+          onClick={() => {
+            router.back();
+          }}
+          className="text-gray-200 bg-slate-600 py-1 px-3 rounded-md hover:bg-slate-500 cursor-pointer"
+        >
+          <ArrowLeft />
+        </button>
         <h2 className="text-xl font-semibold text-gray-200">Add New Hotel</h2>
       </div>
       <form className="space-y-4">

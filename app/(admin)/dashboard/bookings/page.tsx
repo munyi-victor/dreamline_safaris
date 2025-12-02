@@ -1,11 +1,20 @@
 "use client";
 
-import { ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import {
+  ArrowLeft,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+} from "lucide-react";
 import { bookings } from "../../../../constants";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Bookings = () => {
   const [showFilterOptions, setShowFilterOptions] = useState(false);
+
+  const router = useRouter();
 
   const statusColors: Record<string, string> = {
     Paid: "bg-green-600 text-white",
@@ -21,7 +30,18 @@ const Bookings = () => {
 
   return (
     <div className="h-full p-2 md:p-4">
-      <h1 className="text-xl font-semibold mb-3">All Bookings</h1>
+      <div className="flex gap-2 items-center mb-4">
+        <button
+          onClick={() => {
+            router.push("/dashboard");
+          }}
+          className="text-gray-200 bg-slate-600 py-1 px-3 rounded-md hover:bg-slate-500 cursor-pointer"
+        >
+          <ArrowLeft />
+        </button>
+
+        <h1 className="text-xl font-semibold">All Bookings</h1>
+      </div>
 
       <div className="mb-3 flex items-center justify-between">
         {/* filters */}
